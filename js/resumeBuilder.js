@@ -2,8 +2,6 @@ function htmlReplace(htmlStr, data) {
     return htmlStr.replace("%data%", data);
 }
 
-var skills = ["HTML", "CSS", "Javascript", "Python", "Business analysis", "Outside sales"]
-
 var bio = {
     "name": "Gary Herd",
     "role": "Front-End Web Developer",
@@ -14,8 +12,26 @@ var bio = {
         "twitter": "develprwannabe",
         "location": "Houston, TX"        
     },
-    "welcomeMsg": "Hi, I'm a quick learner that gets along with everyone. If you need front-end work done, let's talk",
-    "skills": ["HTML", "CSS", "Javascript", "Python", "Business analysis", "Outside sales"]
+    "welcomeMessage": "Hi, I'm a quick learner that gets along with everyone. If you need front-end work done, let's talk",
+    "biopic": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/000/04b/0fe/1d37ec5.jpg",
+    "skills": ["HTML", "CSS", "Javascript", "Python", "Business analysis", "Outside sales"],
+    "display": function() {
+        $("#header").prepend(htmlReplace(HTMLheaderName, this.name));
+        $("#name").after(htmlReplace(HTMLheaderRole, this.role));
+        $("#topContacts").append(htmlReplace(HTMLemail, this.contacts.email));
+        $("#topContacts").append(htmlReplace(HTMLmobile, this.contacts.mobile));
+        $("#topContacts").append(htmlReplace(HTMLtwitter, this.contacts.twitter));
+        $("#topContacts").append(htmlReplace(HTMLgithub, this.contacts.github));
+        $("#topContacts").append(htmlReplace(HTMLlocation, this.contacts.location));
+        $("#header").append(htmlReplace(HTMLbioPic, this.biopic));
+        $("#header").append(htmlReplace(HTMLwelcomeMsg, this.welcomeMessage));
+        if (this.skills.length > 0) {
+            $("#header").append(HTMLskillsStart);
+            for (var skill in this.skills) {
+                $("#skills").append(htmlReplace(HTMLskills, this.skills[skill]));
+            }  
+        }
+    }
 }
 
 var work = {
@@ -62,33 +78,38 @@ var education = {
     "schools": [
         {
             "name": "Rice University",
+            "location": "Houston, TX",
             "degree": "BSEE",
-            "city": "Houston, TX",
             "majors": ["Electrical Engineering"],
-            "dates" : "1993-1996"
+            "dates" : "1993-1996",
+            "url": "http://www.rice.edu"
         },
         {
             "name": "Rice University",
+            "location": "Houston, TX",            
             "degree": "MBA",
-            "city": "Houston, TX",
             "majors": ["General Management"],
-            "gradYear" : "2001-2003"
+            "dates" : "2001-2003",
+            "url": "http://www.rice.edu"
         }
     ],
-    "online": [
+    "onlineCourses": [
         {
-            "courseName": "Introduction to Computer Science and Programming Using Python",
+            "title": "Introduction to Computer Science and Programming Using Python",
             "school": "edX",
-            "dates": "2016",
+            "date": "2016",
             "url": "http://www.edx.org"
         },
         {
-            "courseName": "Full Stack Web Development Certificate",
+            "title": "Full Stack Web Development Certificate",
             "school": "Free Code Camp",
-            "dates": "2017 (expected)",
+            "date": "2016-2017",
             "url": "http://www.freecodecamp.com"
         }
-    ]
+    ],
+    "display": function() {
+        
+    }
 }
 
 var projects = {
@@ -128,49 +149,26 @@ var projects = {
     }
 }
 
-$("#header").append(htmlReplace(HTMLheaderName, bio.name));
 
-if (bio.skills.length > 0){
-    $("#header").append(HTMLskillsStart);
-    $("#skills").append(htmlReplace(HTMLskills, bio.skills[0]));
-    $("#skills").append(htmlReplace(HTMLskills, bio.skills[1]));
-    $("#skills").append(htmlReplace(HTMLskills, bio.skills[2]));
-    $("#skills").append(htmlReplace(HTMLskills, bio.skills[3]));
-    $("#skills").append(htmlReplace(HTMLskills, bio.skills[4]));
-    $("#skills").append(htmlReplace(HTMLskills, bio.skills[5]));    
-}
-
-// work.display = function() {
-//     for(job in this.work.jobs) {
-//         $("#workExperience").append(HTMLworkStart);
-//         $(".work-entry:last").append(htmlReplace(HTMLworkEmployer, this.work.jobs[job].employer) + 
-//                                         htmlReplace(HTMLworkTitle, this.work.jobs[job].title));
-//         $(".work-entry:last").append(htmlReplace(HTMLworkDates, work.jobs[job].dates));
-//         $(".work-entry:last").append(htmlReplace(HTMLworkLocation, work.jobs[job].location));    
-//         $(".work-entry:last").append(htmlReplace(HTMLworkDescription, work.jobs[job].description));                                                                  
-//     }   
-// }
-
-// displayWork();
-projects.display();
+bio.display();
 work.display();
+projects.display();
+education.display();
 
-// $(document).click(function(loc) {
-//     logClicks(loc.pageX, loc.pageY);
-// })
+
 
 $("#main").append(internationalizeButton);
 
-function inName(nameStr) {
-    var nameArray = nameStr.split(" ");
-    nameArray[0] = nameArray[0].toLowerCase();
-    nameArray[1] = nameArray[1].toLowerCase();
-    nameArray[0] = nameArray[0][0].toUpperCase() + nameArray[0].slice(1);
-    nameArray[1] = nameArray[1].toUpperCase();   
-    var newStr = nameArray.join(' ');
+// function inName(nameStr) {
+//     var nameArray = nameStr.split(" ");
+//     nameArray[0] = nameArray[0].toLowerCase();
+//     nameArray[1] = nameArray[1].toLowerCase();
+//     nameArray[0] = nameArray[0][0].toUpperCase() + nameArray[0].slice(1);
+//     nameArray[1] = nameArray[1].toUpperCase();   
+//     var newStr = nameArray.join(' ');
       
-    return newStr;
-}
+//     return newStr;
+// }
 
 $("#mapDiv").append(googleMap);
 
