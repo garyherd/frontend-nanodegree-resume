@@ -67,4 +67,4 @@ The project had to meet the following requirements:
 
 ## Lessons learned
 * It's important to keep code well organized so it's easier to read and debug.
-* Use online checkers and beautufiers. It's easy to miss semicolons and curly braces in JavaScript.
+* Use online checkers and beautifiers. It's easy to miss semicolons and curly braces in JavaScript.
