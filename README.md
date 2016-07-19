@@ -4,7 +4,7 @@ This project was created to satisfy the requirements for completing Udacity's [F
 ## Project Goals & Requirements
 The goal of this project was to learn basic JavaScript syntax, including manipulating data, building loops and creating functions. Another goal was to learn some simple jQuery DOM manipulation methods to build the resume the moment a user opens the website.
 
-The project has to meet the following requirements:
+The project had to meet the following requirements:
 <table>
     <thead>
         <tr>
