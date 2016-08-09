@@ -51,13 +51,13 @@ var bio = {
 var work = {
     jobs: [{
         employer: "Champion Energy",
-        title: "Business Analyst",
+        title: "IT Business Analyst",
         location: "Houston, TX",
         dates: "2011-present",
         description: "Elicit and document business requirements for software projects. Create models to further enhance understanding."
     }, {
         employer: "PAETEC Energy",
-        title: "Sales Executive",
+        title: "Account Executive",
         location: "Albany, NY",
         dates: "2010-2011",
         description: "Develop new business in assigned area by closing electric supply contracts"
