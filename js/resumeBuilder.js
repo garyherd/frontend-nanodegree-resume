@@ -27,7 +27,7 @@ var bio = {
         location: "Houston, TX"
     },
     welcomeMessage: "Hi, I'm a quick learner that gets along with everyone. If you need front-end work done, let's talk",
-    biopic: "images/portrait.jpg",
+    biopic: "images/portrait.JPG",
     skills: ["HTML", "CSS", "Javascript", "Python", "Business analysis", "Outside sales"],
     display: function() {
         $("#header").prepend(htmlReplace(HTMLheaderName, this.name));
