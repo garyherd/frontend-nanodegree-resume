@@ -146,7 +146,7 @@ var projects = {
         title: "New York Market Launch",
         dates: "Mar 2013 - Nov 2013",
         description: "Project manager for C&I launch in 6 utilities in NY",
-        images: ["http://www.unep.org/ietc/portals/136/Images/Project.jpg"]
+        images: ["images/logo.gif"]
     }, {
         title: "Maryland Market Launch",
         dates: "Feb 2012 - Sep 2012",
